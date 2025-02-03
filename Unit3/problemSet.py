@@ -237,3 +237,123 @@ def engagement_boost(engagements):
 
 print(engagement_boost([-4, -1, 0, 3, 10]))
 print(engagement_boost([-7, -3, 2, 3, 11]))
+
+"""
+Problem 5: Content Cleaner
+You want to make sure your posts are clean and professional. Given a string post of lowercase and uppercase English letters, you want to remove any pairs of 
+adjacent characters where one is the lowercase version of a letter and the other is the uppercase version of the same letter. 
+Keep removing such pairs until the post is clean.
+
+A clean post does not have two adjacent characters post[i] and post[i + 1] where:
+
+post[i] is a lowercase letter and post[i + 1] is the same letter in uppercase or vice-versa.
+Return the clean post.
+
+Note that an empty string is also considered clean.
+
+def clean_post(post):
+  pass
+Example Usage:
+
+print(clean_post("poOost")) 
+print(clean_post("abBAcC")) 
+print(clean_post("s")) 
+Example Output:
+
+post
+
+s
+"""
+
+def clean_post(post):
+    stack = []
+    for char in post:
+        if stack and abs(ord(char) - ord(stack[-1])) == 32:
+            stack.pop()
+        else:
+            stack.append(char)
+    return ''.join(stack)
+
+print(clean_post("poOost")) 
+print(clean_post("abBAcC")) 
+print(clean_post("s")) 
+
+"""
+Problem 6: Post Editor
+You want to add a creative twist to your posts by reversing the order of characters in each word within your post while still preserving whitespace and the initial word order. Given a string post, use a queue to reverse the order of characters in each word within the sentence.
+
+def edit_post(post):
+  pass
+Example Usage:
+
+print(edit_post("Boost your engagement with these tips")) 
+print(edit_post("Check out my latest vlog")) 
+Example Output:
+
+tsooB ruoy tnemegegna htiw esehT spit
+kcehC tuo ym tseval golv
+"""
+from collections import deque
+
+def edit_post(post):
+    q = deque()
+    result = []
+    
+    for char in post:
+        if char != ' ':
+            q.append(char)
+        else:
+            reversed_word = ''
+            while q:
+                reversed_word = q.popleft() + reversed_word
+            result.append(reversed_word)
+            result.append(' ')
+
+    reversed_word = ''
+    while q:
+        reversed_word = q.popleft() + reversed_word
+    result.append(reversed_word)
+    
+    return ''.join(result)
+
+
+print(edit_post("Boost your engagement with these tips")) 
+print(edit_post("Check out my latest vlog"))
+
+
+"""
+Problem 7: Post Compare
+You often draft your posts and edit them before publishing. Given two draft strings draft1 and draft2, return true if they are equal when both are typed into empty text editors. '#' means a backspace character.
+
+Note that after backspacing an empty text, the text will remain empty.
+
+def post_compare(draft1, draft2):
+  pass
+Example Usage:
+
+print(post_compare("ab#c", "ad#c"))
+print(post_compare("ab##", "c#d#")) 
+print(post_compare("a#c", "b")) 
+Example Output:
+
+True
+True
+False
+"""
+
+def post_compare(draft1, draft2):
+    def process_draft(s):
+        stack = []
+        for char in s:
+            if char != '#':
+                stack.append(char)
+            else:
+                if stack:
+                    stack.pop()
+        return ''.join(stack)
+    
+    return process_draft(draft1) == process_draft(draft2)
+
+print(post_compare("ab#c", "ad#c"))
+print(post_compare("ab##", "c#d#")) 
+print(post_compare("a#c", "b")) 
