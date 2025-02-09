@@ -219,21 +219,31 @@ Example Output:
 def engagement_boost(engagements):
     squared_engagements = []
     
+    # iterate through engagements using index
     for i in range(len(engagements)):
+        # new variable = e[i] * e[i]
         squared_engagement = engagements[i] * engagements[i]
+        # var gets appended to new list
         squared_engagements.append((squared_engagement, i))
     
+    # new list is ordered in reverse?
     squared_engagements.sort(reverse=True)
-    
+
+    # create a new list with fixed length
     result = [0] * len(engagements)
+    # start from the last index
     position = len(engagements) - 1
     
+    # iterate through each sorted val and use position's index to reorder list
     for square, original_index in squared_engagements:
         result[position] = square
         position -= 1
     
     return result
+# need to find smallest val ?
+#                                     R
+#                        L 
+#                      [16, 1, 0, 9, 100]
 
-
-print(engagement_boost([-4, -1, 0, 3, 10]))
-print(engagement_boost([-7, -3, 2, 3, 11]))
+print(engagement_boost([-4, -1, 0, 3, 10])) # [0, 1, 9, 16, 100]
+print(engagement_boost([-7, -3, 2, 3, 11])) # [4, 9, 9, 49, 121]
