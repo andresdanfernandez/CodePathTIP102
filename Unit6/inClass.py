@@ -1,87 +1,37 @@
-"""
-Problem 2: Top Artists
+"""class SongNode:
+    def __init__(self,song, next=None):
+        self.song = song
+        self.next = next"""
 
-Given the head of a linked list playlist, return a dictionary that maps each artist in the list to its frequency.
-
-Evaluate the time complexity of your solution. 
-
-Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity.
-
-class SongNode:
-	def __init__(self, song, artist, next=None):
-		self.song = song
-        self.artist = artist
-		self.next = next
-
-# For testing
-def print_linked_list(node):
-    current = node
-    while current:
-        print((current.song, current.artist), end=" -> " if current.next else "")
-        current = current.next
-    print()
+"""top_hits_2010s = SongNode("Uptown Funk", SongNode("Party Rock Anthem", SongNode("Bad Romance")))
+top_hits_2010s = SongNode('Uptown Funk')
+top_hits_2010s = top_hits_2010s.next = SongNode("Party Rock Anthem")
+top_hits_2010s = top_hits_2010s.next.next = SongNode("Bad Romance")"""
 
 
-def get_artist_frequency(playlist):
-	pass
-
-Example Usage:
-
-playlist = SongNode("Saturn", "SZA", 
-                SongNode("Who", "Jimin", 
-                        SongNode("Espresso", "Sabrina Carpenter", 
-                                SongNode("Snooze", "SZA"))))
-
-get_artist_frequency(playlist)
-
-Example Output:
-
-{ "SZA": 2, "Jimin" : 1, "Sabrina Carpenter": 1}
-
-
-"""
-
-# Understand: Input: Linked List Head (Playlist) Output: Frequency Dictionary {"artist":"frequency_times_seen_in_playlist"}
-
-# Plan: Create freq_dict traverse linked list playlist, and check current.artist if its in our dict += 1 the value if not set artist as key and value to 1 
-# (first time seen in playlist)
-
-
-# class SongNode:
-# 	def __init__(self, song, artist, next=None):
-# 		self.song = song
-# 		self.artist = artist
-# 		self.next = next
-
-# Implement:
-
-# def get_artist_frequency(playlist):
+"""def get_artist_frequency(playlist):
 	
-#     freq_dict = {} # O(n) || O(set(current.artist))
+    freq_dict = {} # O(n) || O(set(current.artist))
 	
-#     current = playlist # 1
+    current = playlist # 1
 	
-#     while current: # O(n)
-
-#         """
-#         freq_dict[current.artist] = 1 + freq_dict.get(current.artist, 0)
-#         """
+    while current: # O(n)
 		
-#         if current.artist in freq_dict: # 1
+        if current.artist in freq_dict: # 1
             
-#         	freq_dict[current.artist] += 1 # 1
-#         else:
-#             freq_dict[current.artist] = 1 # 1
+            freq_dict[current.artist] += 1 # 1
+        else:
+            freq_dict[current.artist] = 1 # 1
 			
-#         current = current.next # 1
+        current = current.next # 1
 
-#     return freq_dict # 1
+    return freq_dict # 1
 
-# playlist = SongNode("Saturn", "SZA", SongNode("Who", "Jimin", SongNode("Espresso", "Sabrina Carpenter", SongNode("Snooze", "SZA"))))
+playlist = SongNode("Saturn", "SZA", SongNode("Who", "Jimin", SongNode("Espresso", "Sabrina Carpenter", SongNode("Snooze", "SZA"))))
 
-# Saturn:SZA -> Who:Jimin -> Espresson:Sabrina Carpenter -> Snooze:SZA
+#Saturn:SZA -> Who:Jimin -> Espresson:Sabrina Carpenter -> Snooze:SZA
 
-#print(get_artist_frequency(playlist)) # { "SZA": 2, "Jimin" : 1, "Sabrina Carpenter": 1}
+print(get_artist_frequency(playlist)) # { "SZA": 2, "Jimin" : 1, "Sabrina Carpenter": 1}"""
 
 """
 Problem 3: Glitching Out
@@ -145,7 +95,7 @@ Expected Output:
 """
 
 
-class SongNode:
+"""class SongNode:
      
 	def __init__(self, song, artist, next=None):
           self.song = song
@@ -158,7 +108,7 @@ def print_linked_list(node):
     while current:
         print((current.song, current.artist), end=" -> " if current.next else "")
         current = current.next
-    print()
+    print()"""
 
 #                        current.next: Dreams -> current.next = Lovely Day
 #                        current: Simple Twist  -> current = Lovely Day
@@ -169,7 +119,7 @@ def print_linked_list(node):
 #                           ---------------------------------------------------------------> ('Lovely Day', 'Bill Withers')
 
 # Function with a bug!
-def remove_song(playlist_head, song):
+"""def remove_song(playlist_head, song):
     if not playlist_head:
         return None
 
@@ -197,4 +147,6 @@ playlist = SongNode("SOS", "ABBA",
                     SongNode("Dreams", "Fleetwood Mac",
                         SongNode("Lovely Day", "Bill Withers"))))
 
-print_linked_list(remove_song(playlist, "Dreams"))
+print_linked_list(remove_song(playlist, "Dreams"))"""
+
+	
