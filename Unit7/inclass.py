@@ -72,7 +72,6 @@ def get_village_class_recursive(population):
 # iterative approach
 def get_village_class_iterative(population):
 
-    
     counter = 0
 
     while population // 10 != 0:
