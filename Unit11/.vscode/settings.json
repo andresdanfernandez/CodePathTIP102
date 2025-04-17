@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        ".fantomasignore": "ignore",
+        "iosfwd": "cpp",
+        "vector": "cpp"
+    }
+}
